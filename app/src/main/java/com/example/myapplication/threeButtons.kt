@@ -10,13 +10,22 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_three_buttons.*
 
-class threeButtons : AppCompatActivity(), View.OnClickListener{
+class threeButtons : AppCompatActivity(), View.OnClickListener{git
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_three_buttons)
 
         button5.setOnClickListener {
-            Toast.makeText(this@threeButtons, "Vous avez cliqué sur le bouton 5", Toast.LENGTH_SHORT).show()
+            val inflater = layoutInflater
+            val layout: View = inflater.inflate(R.layout.custom_toast, findViewById(R.id.custom_toast_container))
+            val text: TextView = layout.findViewById(R.id.text)
+            text.text="Vous avez cliqué que le bouton 5"
+            with(Toast(applicationContext)){
+                setGravity(Gravity.CENTER_VERTICAL, 0, 0)
+                duration= Toast.LENGTH_LONG
+                view = layout
+                show()
+            }
         }
 
         button6.setOnClickListener (this)
@@ -26,17 +35,7 @@ class threeButtons : AppCompatActivity(), View.OnClickListener{
 
     override fun onClick(v: View?) {
         if(v==button6){
-           val inflater = layoutInflater
-            val container: ViewGroup = findViewById(R.id.custom_toast_container)
-            val layout: View = inflater.inflate(R.layout.custom_toast, container)
-            val text: TextView = layout.findViewById(R.id.text)
-            text.text="Vous avez cliqué que le bouton 6"
-            with(Toast(applicationContext)){
-                setGravity(Gravity.CENTER_VERTICAL, 0, 0)
-                duration= Toast.LENGTH_SHORT
-                view = layout
-                show()
-            }
+            Toast.makeText(this@threeButtons, "Vous avez cliqué sur le bouton 6", Toast.LENGTH_SHORT).show()
         }
     }
 
