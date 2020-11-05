@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Pusheen Stickers</string>
+    <string name="sign_in">Sign In</string>
+    <string name="centralelogo">CentraleLogo</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="bouton_5">Bouton 5</string>
+    <string name="bouton_6">Bouton 6</string>
+    <string name="bouton_7">Bouton 7</string>
+</resources>
